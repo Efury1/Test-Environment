@@ -8,3 +8,10 @@ document.querySelectorAll('.tabs .tab').forEach(btn => {
     btn.classList.add('is-active')
   })
 })
+
+
+let ticketSelectorButton = document.getElementById("ticketButton");
+
+ticketSelectorButton.addEventListener("click", () => {
+  alert("Button clicked");
+});
