@@ -1,5 +1,5 @@
 // src/main.js
-import './styles/main.scss'
+import './main.scss' 
 
 // (optional) tiny behavior example:
 document.querySelectorAll('.tabs .tab').forEach(btn => {
