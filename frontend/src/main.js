@@ -1,6 +1,19 @@
 // src/main.js
 import './main.scss'
 
+// Tags
+
+const TAGS = [
+  "Think About Later",
+  "Keep Long-Term",
+  "Temporary/Delete WHen Done",
+  "References",
+  "Tried and Failed",
+  "Found/Discovered",
+  "Parking Lot"
+]
+
+
 // -----------------------------
 // Tabs
 // -----------------------------
@@ -19,6 +32,7 @@ const addButtonSelector = document.getElementById("addTicket");
 const ticketSelectorInput = document.getElementsByClassName("ticket-input")[0];
 const ticketList = document.getElementById("ticket-item"); // UL
 const editorRoot = document.getElementById("editorRoot"); // Notepad section
+const emptyState = document.getElementById("emptyState");
 
 // -----------------------------
 // Helpers
@@ -91,4 +105,9 @@ addButtonSelector.addEventListener("click", () => {
 
   // Clear input
   ticketSelectorInput.value = "";
+
+  //Hide/remomve empty state when first ticket is added
+  if (emptyState) {
+    emptyState.remove();
+  }
 });
