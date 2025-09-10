@@ -226,13 +226,19 @@ function openNotepad(ticketValue) {
 
 }
 
+// Tickets as a whole need to be saved 
+// And the notes inside them need to be linked to them
+// Set multiple to multiple dimension array
+// conver the array to a string before assigning
+// Can use JSON stringify
 // -----------------------------
 // Events — Add tickets & focus
 // -----------------------------
 ticketSelectorButton?.addEventListener("click", () => {
   ticketInput?.focus();
 });
-
+  
+const storageKeyForTicket = (ticketValue) => `ticket:${ticketValue}`;
 function addTicketFromInput() {
   const ticketValue = cleanTicketValue(ticketInput?.value);
   if (!ticketValue) return;
@@ -257,6 +263,7 @@ function addTicketFromInput() {
   // Remove empty state on first ticket
   if (emptyState) emptyState.remove();
 
+  localStorage.setItem(storageKeyForTicket(ticketValue), ticketValue);
   // Open editor immediately for faster flow
   openNotepad(ticketValue);
 }
