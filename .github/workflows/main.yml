@@ -1,5 +1,5 @@
 name: Sync Wiki
-https://github.com/Efury1/Test-Environment/tree/master/.github/workflows
+
 on:
   push:
     branches:
