@@ -1,14 +1,14 @@
-name: Sync Wiki
-
+name: deploy-wiki
 on:
   push:
-    branches:
-      - master
-
+    branches: "master"
+    paths: wiki/**
 jobs:
   deploy-wiki:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy GitHub wiki
-        uses: actions4gh/deploy-wiki@v1.1.1
-
+      - uses: actions/checkout@v4
+      - uses: actions4gh/configure-wiki@v1
+      - uses: actions4gh/deploy-wiki@v1
