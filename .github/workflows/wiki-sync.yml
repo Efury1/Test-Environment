@@ -29,4 +29,4 @@ jobs:
           git commit -m "Update wiki via CI/CD"
           git push origin master
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.WIKI_PAT }}
