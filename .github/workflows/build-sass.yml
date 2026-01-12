@@ -1,25 +1,25 @@
-name: Build Sass on PR
+name: Build Sass and push to master
 
 on:
-  pull_request:
-    branches:
-      - dev
-    types: [opened, synchronize, reopened]
-
   workflow_dispatch:
     inputs:
       reason:
-        description: 'Why are you running this manually?'
+        description: 'Why are you promoting dev to master?'
         required: false
         default: 'Manual Sass build'
 
+permissions:
+  contents: write
+
 jobs:
-  build-sass:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -30,9 +30,26 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Compile Sass (CI validation)
+      - name: Compile Sass (CI)
         run: >
           npx sass
           --no-source-map
           --style=compressed
           src:src/dist
+
+      - name: Push compiled CSS to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout master
+          git checkout dev -- src/dist
+
+          if git diff --quiet; then
+            echo "No CSS changes to commit"
+            exit 0
+          fi
+
+          git add src/dist
+          git commit -m "chore(css): compile Sass from dev"
+          git push origin master
