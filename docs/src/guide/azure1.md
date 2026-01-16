@@ -53,14 +53,13 @@ CI/CD pipelines in Azure DevOps provide clear insights into build and deployment
 * **Pipeline Overview** – Build pipelines are easy to navigate and monitor.  
   ![Select a Repo](images/Azure/Azure_pipelines_select_a_repo.png)
 
-* **Build Status on PRs** – Pull requests  can clearly show if builds pass or fail.  
-  ![No Hosted Parallelism](images/Azure/Azure No hosted parallelism.png)  
+* **Build Status on PRs** – Pull requests  can clearly show if builds pass or fail.  You do have to make a parallelist request to access service.
   ![Parallel Requests](images/Azure/Azure_DevOps_Parallelist_Request.png)
 
 * **Code Quality Checks** – Can have integrated code quality and static analysis.  
   ![Code Quality](images/Azure/Azure_code_quality.png)
 
-* **Historical Build Results** – Builds and artifacts remain accessible for auditing or troubleshooting.  
+* **Cycle Time** – We can see how long it takes to complete work from start to finish. We can use this regardless of the service we go with, it 
   ![Cycle Time](images/Azure/Cyce_time_on azure.png)
 
 
@@ -73,9 +72,7 @@ When two Pull Requests are opened or updated at the same time, each PR triggers 
   - Queue the other until the first finishes
 
 - If **two parallel jobs** are available, Azure DevOps will:
-  - Run both PR pipelines at the same time
-
-It does not matter whether the PRs use:
+  - Run both PR pipelines at the same time it means it does not matter whether the PRs use:
 - The same pipeline or different pipelines
 - The same repository or different repositories
 - The same or different branches
@@ -150,6 +147,6 @@ Azure DevOps gives developers visibility and control over repositories:
 
 **Summary:**  
 
-Azure DevOps (Paid) provides strong **pull request transparency**, **solid CI/CD feedback**, practical **boards**, and **low-risk migration paths** to GitHub. The platform is suitable for teams that need structure and traceability without being locked in long-term.
+Azure DevOps (Paid) provides strong **pull request transparency**, **solid CI/CD feedback**, practical **boards**, and **low-risk migration paths** from GitHub. Compared to Azure Pipelines, **GitHub Actions is generally cheaper, easier to use, and simpler to run jobs concurrently**, while Azure is good, if you need deep enterprise governance or full integration with DevOps Boards.
 
 
