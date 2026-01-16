@@ -1,6 +1,6 @@
 # GitHub Guide
 
-GitHub is th eplace where we currently collaborate, and store our code.
+GitHub is the place where we currently collaborate, and store our code.
 
 ---
 
@@ -55,7 +55,7 @@ PRs let you propose changes and get feedback before merging code. They are essen
 GitHub Actions allows you to automate tasks like testing, building, and deploying directly from your repository.  
 
 - **Free users**: Limited minutes for workflow runs per month, enough for small projects.  
-- **Paid plans**: Unlimited workflows, larger compute, and priority runners.  
+- **Paid plans**: Unlimited workflows, expanded compute capacity, and priority runners mean we can trigger PR checks the moment they arrive, and even run them concurrently.
 
 **What you can do**:  
 - Run CI/CD pipelines automatically on code changes  
